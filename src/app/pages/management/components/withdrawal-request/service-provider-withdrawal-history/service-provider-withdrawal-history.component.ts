@@ -8,7 +8,7 @@ import { ServiceProviderDetails } from '../../../models/service-provider-details
     selector: 'ngx-serviceprovider-withdrawal-history',
     templateUrl: './service-provider-withdrawal-history.component.html',
     styleUrls: ['./service-provider-withdrawal-history.component.scss'],
-    standalone: false
+    
 })
 export class ServiceProviderWithdrawalHistoryComponent extends AppBaseComponent {
 

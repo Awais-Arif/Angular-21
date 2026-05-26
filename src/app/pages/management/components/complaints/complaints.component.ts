@@ -9,7 +9,7 @@ import { ComplaintStatus } from './../../models/complaint.model';
     selector: 'ngx-complaints',
     templateUrl: './complaints.component.html',
     styleUrls: ['./complaints.component.scss'],
-    standalone: false
+    
 })
 
 

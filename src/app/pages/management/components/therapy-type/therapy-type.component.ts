@@ -9,7 +9,7 @@ import { TherapyTypeService } from '../../services/therapy-type.service';
 @Component({
     selector: 'ngx-therapy-type',
     templateUrl: './therapy-type.component.html',
-    standalone: false
+    
 })
 export class TherapyTypeComponent extends AppBaseComponent implements OnInit {
   public therapyTypes: TherapyType[];

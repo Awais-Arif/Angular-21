@@ -6,7 +6,7 @@ import { ConfirmationDialogService } from '../shared/services/confirmation-dialo
     selector: 'ngx-confirmation-dialog',
     templateUrl: './confirmation-dialog.component.html',
     styleUrls: ['./confirmation-dialog.component.scss'],
-    standalone: false
+    
 })
 export class ConfirmationDialogComponent implements AfterViewInit {
   title: string = '';

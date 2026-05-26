@@ -26,6 +26,6 @@ import { Component } from '@angular/core';
 
     </nb-layout>
   `,
-    standalone: false
+    
 })
 export class TwoColumnsLayoutComponent {}

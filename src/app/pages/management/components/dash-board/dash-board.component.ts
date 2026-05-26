@@ -8,7 +8,7 @@ import { DashboardService } from '../../services/dashboard.service';
     selector: 'ngx-dash-board',
     templateUrl: './dash-board.component.html',
     styleUrls: ['./dash-board.component.scss'],
-    standalone: false
+    
 })
 export class DashBoardComponent implements OnDestroy, OnInit {
   private destroy$ = new Subject<void>();

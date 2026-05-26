@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
     selector: 'ngx-header',
     styleUrls: ['./header.component.scss'],
     templateUrl: './header.component.html',
-    standalone: false
+    
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 

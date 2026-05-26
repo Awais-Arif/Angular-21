@@ -10,7 +10,7 @@ import { SeoService } from './@core/utils/seo.service';
 @Component({
     selector: 'ngx-app',
     template: '<nb-layout><nb-layout-column class="p-0"><router-outlet></router-outlet></nb-layout-column></nb-layout>',
-    standalone: false
+    
 })
 export class AppComponent implements OnInit {
 

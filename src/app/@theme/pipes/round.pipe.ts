@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'ngxRound',
-    standalone: false
+    
 })
 export class RoundPipe implements PipeTransform {
 
