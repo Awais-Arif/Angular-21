@@ -4,8 +4,9 @@ import { CustomersService } from '../../services/customer.service';
 import { Customer } from '../../models/customer.model';
 
 @Component({
-  selector: 'ngx-customers',
-  templateUrl: './customers.component.html',
+    selector: 'ngx-customers',
+    templateUrl: './customers.component.html',
+    standalone: false
 })
 export class CustomersComponent extends AppBaseComponent implements OnInit {
 

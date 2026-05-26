@@ -6,9 +6,10 @@ import { ServiceProviderService } from '../../../services/service-provider.servi
 import { environment } from '../../../../../../environments/environment';
 
 @Component({
-  selector: 'ngx-serviceprovider-details',
-  templateUrl: './service-provider-details.component.html',
-  styleUrls: ['./service-provider-details.component.scss']
+    selector: 'ngx-serviceprovider-details',
+    templateUrl: './service-provider-details.component.html',
+    styleUrls: ['./service-provider-details.component.scss'],
+    standalone: false
 })
 export class ServiceProviderDetailsComponent extends AppBaseComponent implements OnInit {
 

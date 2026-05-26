@@ -6,7 +6,8 @@ import { SubSink } from 'subsink';
 import { ConfirmationDialogService } from '../services/confirmation-dialog.service';
 import { TableModule } from 'primeng/table';
 @Component({
-  template: '',
+    template: '',
+    standalone: false
 })
 export abstract class AppBaseComponent implements OnDestroy {
   protected toastService: ToastService;

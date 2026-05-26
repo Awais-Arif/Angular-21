@@ -3,9 +3,10 @@ import { NbDialogRef } from '@nebular/theme';
 import { ConfirmationDialogService } from '../shared/services/confirmation-dialog.service';
 
 @Component({
-  selector: 'ngx-confirmation-dialog',
-  templateUrl: './confirmation-dialog.component.html',
-  styleUrls: ['./confirmation-dialog.component.scss'],
+    selector: 'ngx-confirmation-dialog',
+    templateUrl: './confirmation-dialog.component.html',
+    styleUrls: ['./confirmation-dialog.component.scss'],
+    standalone: false
 })
 export class ConfirmationDialogComponent implements AfterViewInit {
   title: string = '';

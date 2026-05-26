@@ -4,9 +4,10 @@ import { UserService } from './../shared/services/user.service';
 import { ConfirmationDialogService } from '../shared/services/confirmation-dialog.service';
 
 @Component({
-  selector: 'ngx-delete-account',
-  templateUrl: './delete-account.component.html',
-  styleUrls: ['./delete-account.component.scss'],
+    selector: 'ngx-delete-account',
+    templateUrl: './delete-account.component.html',
+    styleUrls: ['./delete-account.component.scss'],
+    standalone: false
 })
 export class DeleteAccountComponent {
   email = '';

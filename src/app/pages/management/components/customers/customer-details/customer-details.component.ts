@@ -6,9 +6,10 @@ import { CustomerDetail, CustomerServiceRequestDetailModel } from '../../../mode
 import { environment } from '../../../../../../environments/environment';
 
 @Component({
-  selector: 'ngx-customer-details',
-  templateUrl: './customer-details.component.html',
-  styleUrls: ['./customer-details.component.scss']
+    selector: 'ngx-customer-details',
+    templateUrl: './customer-details.component.html',
+    styleUrls: ['./customer-details.component.scss'],
+    standalone: false
 })
 export class CustomerDetailsComponent extends AppBaseComponent implements OnInit {
 

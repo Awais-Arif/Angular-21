@@ -7,8 +7,9 @@ import { LicenseType } from '../../models/license-type.model';
 import { LicenseTypeService } from '../../services/license-type.service';
 
 @Component({
-  selector: 'ngx-license-type',
-  templateUrl: './license-type.component.html',
+    selector: 'ngx-license-type',
+    templateUrl: './license-type.component.html',
+    standalone: false
 })
 export class LicenseTypeComponent extends AppBaseComponent implements OnInit {
   public licenseTypes: LicenseType[];

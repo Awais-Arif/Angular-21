@@ -6,9 +6,10 @@ import { ComplaintDetailModel } from '../../models/complaint-detail.model';
 import { ComplaintStatus } from './../../models/complaint.model';
 
 @Component({
-  selector: 'ngx-complaints',
-  templateUrl: './complaints.component.html',
-  styleUrls: ['./complaints.component.scss']
+    selector: 'ngx-complaints',
+    templateUrl: './complaints.component.html',
+    styleUrls: ['./complaints.component.scss'],
+    standalone: false
 })
 
 

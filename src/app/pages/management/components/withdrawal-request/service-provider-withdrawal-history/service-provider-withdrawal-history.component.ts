@@ -5,9 +5,10 @@ import { AppBaseComponent } from '../../../../../shared/components/app-base-comp
 import { ServiceProviderService } from '../../../services/service-provider.service';
 import { ServiceProviderDetails } from '../../../models/service-provider-details.model';
 @Component({
-  selector: 'ngx-serviceprovider-withdrawal-history',
-  templateUrl: './service-provider-withdrawal-history.component.html',
-  styleUrls: ['./service-provider-withdrawal-history.component.scss']
+    selector: 'ngx-serviceprovider-withdrawal-history',
+    templateUrl: './service-provider-withdrawal-history.component.html',
+    styleUrls: ['./service-provider-withdrawal-history.component.scss'],
+    standalone: false
 })
 export class ServiceProviderWithdrawalHistoryComponent extends AppBaseComponent {
 

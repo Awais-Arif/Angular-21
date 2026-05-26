@@ -7,8 +7,9 @@ import { RejectionReason } from '../../models/rejection-reason.model';
 import { RejectionReasonService } from '../../services/rejection-reason.service';
 
 @Component({
-  selector: 'ngx-rejection-reason',
-  templateUrl: './rejection-reason.component.html',
+    selector: 'ngx-rejection-reason',
+    templateUrl: './rejection-reason.component.html',
+    standalone: false
 })
 export class RejectionReasonComponent extends AppBaseComponent implements OnInit {
   public rejectionReasons: RejectionReason[];
