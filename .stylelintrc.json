@@ -12,7 +12,7 @@
     "number-no-trailing-zeros": true,
     "length-zero-no-unit": true,
     "string-no-newline": true,
-    "string-quotes": "single",
+    "string-quotes": "double",
     "unit-case": "lower",
     "unit-no-unknown": true,
     "unit-whitelist": [
