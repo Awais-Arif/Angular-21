@@ -1,0 +1,34 @@
+// appointment-dashboard.component.scss
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  nb-card {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  nb-card-header {
+    text-align: center;
+  }
+  
+  .count-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .count {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  // Adjust the progress bar styles as needed
+  nb-progress-bar {
+    margin-top: 10px;
+  }
+  

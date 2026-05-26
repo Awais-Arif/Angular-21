@@ -1,0 +1,17 @@
+<nb-card class="modal-card">
+  <nb-card-header
+    ><h6>{{ title }}</h6>
+  </nb-card-header>
+  <nb-card-body class="d-flex align-items-center">
+    <nb-icon class="text-danger mr-2" icon="alert-triangle-outline"></nb-icon>
+    {{ message }}
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton class="mr-2" (click)="decline()" status="basic">
+      {{ btnCancelText }}
+    </button>
+    <button nbButton (click)="accept()" status="success">
+      {{ btnOkText }}
+    </button>
+  </nb-card-footer>
+</nb-card>

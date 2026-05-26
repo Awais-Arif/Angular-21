@@ -1,0 +1,95 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+          <h3 class="mt-2">Service Types</h3>
+          <button nbButton size="small" type="button" (click)="openDialog()" status="success">
+            New
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-12">
+        <p-table
+          #groupsTable
+          [value]="therapyTypes"
+          [loading]="loading"
+          [showCurrentPageReport]="true"
+          selectionMode="single"
+          responsiveLayout="scroll"
+          selectionMode="single"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col">
+                Id
+                <p-sortIcon field="id"></p-sortIcon>
+              </th>
+              <th scope="col">
+                Name
+                <p-sortIcon field="stores"></p-sortIcon>
+              </th>
+              <th scope="col">
+                Delete
+              </th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-therapyType>
+            <tr >
+              <td>{{ therapyType.id }}</td>
+              <td>{{ therapyType.name}}</td>
+              <td>
+                <button nbButton status="danger" type="button" (click)="onDelete(therapyType)">
+                  <nb-icon icon="trash" ></nb-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      </div>
+  </nb-card-body>
+</nb-card>
+
+<!-- Add/Edit/Delete Event Modal -->
+<ng-template #therapyTypeDialog>
+  <nb-card>
+    <nb-card-header>
+      <h2>Add New</h2>
+    </nb-card-header>
+
+    <nb-card-body>
+      <form [formGroup]="therapyTypeForm" class="px-4 custom-width" (ngSubmit)="onAddTherapyType()">
+        <nb-form-field class="my-3">
+          <div class="my-3 d-flex align-items-center justify-content-between">
+            <label for="therapyName" class="mr-4">
+            Name
+            </label>
+            <input
+              id="therapyName"
+              type="text"
+              class="mb-2"
+              formControlName="therapyName"
+              nbInput
+              fullWidth
+              placeholder="Enter Therapy Type Name"
+            />
+          </div>
+        </nb-form-field>
+        <div class="my-3 d-flex justify-content-between">
+          <div class="">
+            <button type="submit" nbButton status="success" class="ml-2"  size="medium">
+              Save
+            </button>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</ng-template>

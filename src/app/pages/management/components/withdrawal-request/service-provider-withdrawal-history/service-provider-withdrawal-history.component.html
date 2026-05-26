@@ -1,0 +1,275 @@
+<!-- profile.component.html -->
+
+<nb-card *ngIf="profileData.id">
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+          <h3 class="mt-2">ServiceProvider Details</h3>
+          <!-- <div class="row">
+            <button nbButton size="tiny" (click)="onApprove()" class="mr-2" type="button" status="success">
+              Approve
+            </button> -->
+          <!-- <button nbButton size="tiny" type="button" status="danger">
+              Disapprove
+            </button> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="profile-container">
+      <div class="profile-header p-3">
+        <div class="row">
+          <div class="custom-avatar">
+            <img [src]="profileData.profilePicture" alt="" />
+          </div>
+          <div class="ServiceProvider-info ml-4">
+            <h1 style="margin: 5px">
+              {{ profileData.user.firstName }} {{ profileData.user.lastName }}
+            </h1>
+            <p>{{ profileData.bio }}</p>
+          </div>
+        </div>
+      </div>
+
+      <nb-card>
+        <nb-card-header> Earnings </nb-card-header>
+        <nb-card-body>
+          <!-- ... (previous content) ... -->
+          <!-- Earnings and Appointments Progress Indicators -->
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <p>
+                <strong>Total Earnings:</strong> {{ profileData.totalEarnings }}
+              </p>
+              <nb-progress-bar
+                [value]="profileData.totalEarnings"
+                size="medium"
+                status="success"
+              ></nb-progress-bar>
+            </div>
+
+            <div class="col-md-6">
+              <p>
+                <strong>Remaining Earnings:</strong>
+                {{ profileData.remainingEarnings }}
+              </p>
+              <nb-progress-bar
+                [value]="profileData.remainingEarnings"
+                status="info"
+              ></nb-progress-bar>
+            </div>
+          </div>
+
+          <!-- Withdrawals and Completed Appointments Progress Indicators -->
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <p>
+                <strong>Total Withdrawals:</strong>
+                {{ profileData.totalWithDrawls }}
+              </p>
+              <nb-progress-bar
+                [value]="profileData.totalWithDrawls"
+                status="warning"
+              ></nb-progress-bar>
+            </div>
+
+            <!-- <div class="col-md-6">
+              <p>
+                <strong>Total Appointments:</strong>
+                {{ profileData.totalAppointments }}
+              </p>
+              <nb-progress-bar
+                [value]="profileData.totalAppointments"
+                status="primary"
+              ></nb-progress-bar>
+            </div> -->
+          </div>
+
+          <!-- Remaining Appointments Progress Indicator -->
+          <!-- <div class="row mt-4">
+            <div class="col-md-6">
+              <p>
+                <strong>Completed Appointments:</strong>
+                {{ profileData.completedAppointments }}
+              </p>
+              <nb-progress-bar
+                [value]="profileData.completedAppointments"
+                status="danger"
+              ></nb-progress-bar>
+            </div>
+            <div class="col-md-6">
+              <p>
+                <strong>Remaining Appointments:</strong>
+                {{ profileData.remainingAppointments }}
+              </p>
+              <nb-progress-bar
+                [value]="profileData.remainingAppointments"
+                status="danger"
+              ></nb-progress-bar>
+            </div>
+          </div> -->
+        </nb-card-body>
+      </nb-card>
+
+      <div class="profile-details">
+        <div class="ServiceProvider-details">
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <p><strong>Email:</strong> {{ profileData.user.email }}</p>
+              <p>
+                <strong>Phone Number:</strong>
+                {{ profileData.user.phoneNumber }}
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Gender:</strong> {{ profileData.gender }}</p>
+              <p>
+                <strong>Date of Birth:</strong>
+                {{ profileData.dateOfBirth | date : "shortDate" }}
+              </p>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <p>
+                <strong>Business Address:</strong>
+                {{ profileData.businessAddress }}
+              </p>
+              <p>
+                <strong>Business Phone Number:</strong>
+                {{ profileData.businessPhoneNumber }}
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p>
+                <strong>Street Address:</strong> {{ profileData.streetAddress }}
+              </p>
+              <p><strong>City:</strong> {{ profileData.city }}</p>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <p class="col-md-6">
+              <strong>State:</strong> {{ profileData.state }}
+            </p>
+            <p class="col-md-6"><strong>Zip:</strong> {{ profileData.zip }}</p>
+          </div>
+          <!-- Add more ServiceProvider details as needed -->
+          <div class="row border-top p-3">
+            <div class="col-md-6">
+              <h2>Qualifications</h2>
+              <div *ngFor="let qualification of profileData.qualifications">
+                <p><strong>Name:</strong> {{ qualification.name }}</p>
+                <p>
+                  <strong>Institution:</strong>
+                  {{ qualification.institutionName }}
+                </p>
+                <p>
+                  <strong>Year:</strong>
+                  {{ qualification.procurementYear | date : "shortDate" }}
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h2>Specializations</h2>
+              <div *ngFor="let specialization of profileData.specializations">
+                <p>{{ specialization.name }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row border-top p-3">
+            <div class="col-md-6">
+              <div>
+                <h2>ServiceProvider Therapies</h2>
+                <div
+                  *ngFor="let therapy of profileData.serviceProviderTherapies"
+                >
+                  <p>{{ therapy.therapyName }}</p>
+                </div>
+              </div>
+              <!-- profile.component.html -->
+            </div>
+            <div class="col-md-6">
+              <h2>License Information</h2>
+              <p>
+                <strong>Board:</strong>
+                {{ profileData.serviceProviderLicense.board }}
+              </p>
+              <p>
+                <strong>License Number:</strong>
+                {{ profileData.serviceProviderLicense.number }}
+              </p>
+              <p>
+                <strong>Issue Date:</strong>
+                {{
+                  profileData.serviceProviderLicense.issueDate
+                    | date : "shortDate"
+                }}
+              </p>
+              <p>
+                <strong>Expiry Date:</strong>
+                {{
+                  profileData.serviceProviderLicense.expiryDate
+                    | date : "shortDate"
+                }}
+              </p>
+            </div>
+          </div>
+          <!-- Add more license details as needed -->
+        </div>
+
+        <nb-card>
+          <nb-card-header> Transaction History </nb-card-header>
+          <nb-card-body>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Description</th>
+                  <th>Total Amount</th>
+                  <th>Date</th>
+                  <!-- Add more table headers based on your data -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let transaction of profileData.transactions">
+                  <td>{{ transaction.description }}</td>
+                  <td>{{ transaction.totalAmount }}</td>
+                  <td>{{ transaction.updatedOn | date }}</td>
+                  <!-- Add more table cells based on your data -->
+                </tr>
+              </tbody>
+            </table>
+          </nb-card-body>
+        </nb-card>
+
+        <!-- <nb-card>
+          <nb-card-header> Appointments </nb-card-header>
+          <nb-card-body>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>ServiceProvider Name</th>
+                  <th>Service</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let appointment of profileData.appointments">
+                  <td>{{ appointment.CustomerName }}</td>
+                  <td>{{ appointment.ServiceProviderName }}</td>
+                  <td>{{ appointment.CustomerServiceName }}</td>
+                  <td>{{ appointment.startTime | date }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </nb-card-body>
+        </nb-card> -->
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

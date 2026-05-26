@@ -1,0 +1,70 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+          <h3 class="mt-2">Customers</h3>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-12">
+        <p-table
+          #groupsTable
+          [value]="Customers"
+          [loading]="loading"
+          [showCurrentPageReport]="true"
+          selectionMode="single"
+          responsiveLayout="scroll"
+          selectionMode="single"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col">
+                Sr No
+                <p-sortIcon field="id"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="fullName">
+                Name
+                <p-sortIcon field="fullName"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="email">
+                Email
+                <p-sortIcon field="email"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="businessPhoneNumber">
+                Phone
+                <p-sortIcon field="businessPhoneNumber"></p-sortIcon>
+              </th>
+              <th scope="col">View Details</th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-Customer let-i="rowIndex">
+            <tr>
+              <td class="table-cell m-1">{{ i + 1 }}</td>
+              <td class="table-cell">
+                {{ Customer?.user?.firstName + " " + Customer?.user.lastName }}
+              </td>
+              <td class="table-cell">{{ Customer?.user?.email }}</td>
+              <td class="table-cell">{{ Customer?.user?.phoneNumber }}</td>
+              <td class="table-cell">
+                <button nbButton status="warning" type="button">
+                  <nb-icon
+                    icon="eye"
+                    [routerLink]="[
+                      '/pages/management/customer-details',
+                      Customer.user?.id
+                    ]"
+                  ></nb-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

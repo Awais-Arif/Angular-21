@@ -1,0 +1,89 @@
+<!-- profit-form.component.html -->
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+          <h3 class="mt-2">Add Profit Percentage</h3>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="settingForm">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="servicePercentage">Service Percentage:</label>
+            <input
+              formControlName="servicePercentage"
+              type="text"
+              id="servicePercentage"
+              name="servicePercentage"
+              class="form-control"
+              step="0.1"
+              min="0"
+              required
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1')"
+            />
+          </div>
+          <div class="col-sm-6">
+            <label for="withdrawalPercentage">Withdrawal Percentage:</label>
+            <input
+              formControlName="withdrawalPercentage"
+              type="text"
+              id="withdrawalPercentage"
+              name="withdrawalPercentage"
+              class="form-control"
+              step="0.1"
+              min="0"
+              required
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1')"
+            />
+          </div>
+          <div class="col-sm-6">
+            <label for="serviceProviderAvailability">
+              ServiceProvider Slot Time In Minutes:
+            </label>
+            <input
+              formControlName="serviceProviderAvailability"
+              type="number"
+              id="serviceProviderAvailability"
+              name="serviceProviderAvailability"
+              class="form-control"
+              step="0.1"
+              min="0"
+              required
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+            />
+          </div>
+        </div>
+
+        <div *ngIf="!settingsModel.id">
+          <button
+            (click)="createSettings()"
+            class="mt-3"
+            nbButton
+            size="medium"
+            type="button"
+            status="success"
+          >
+            Add
+          </button>
+        </div>
+        <div *ngIf="settingsModel.id">
+          <button
+            class="mt-3"
+            (click)="updateSettings()"
+            nbButton
+            size="medium"
+            type="button"
+            status="success"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

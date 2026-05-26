@@ -1,0 +1,95 @@
+<div class="row border-top p-3">
+  <div class="col-md-12">
+    <h2>Orders</h2>
+    <nb-tabset>
+      <nb-tab tabTitle="InProgress">
+        <div *ngIf="inProgressOrders.length > 0; else noInProgressOrders">
+          <div
+            *ngFor="let order of inProgressOrders"
+            class="order-card mb-3 p-3 border rounded"
+          >
+            <p *ngIf="order?.service">
+              <strong>Service:</strong> {{ order?.service?.name }}
+            </p>
+            <p>
+              <strong>Total Price:</strong> {{ order.totalPrice | currency }}
+            </p>
+            <p><strong>Description:</strong> {{ order.description }}</p>
+            <p>
+              <strong>Start Date:</strong>
+              {{ order.startDate | date : "shortDate" }}
+            </p>
+            <p>
+              <strong>End Date:</strong>
+              {{ order.endDate | date : "shortDate" }}
+            </p>
+            <div *ngIf="order.milestones?.length > 0" class="mt-4">
+              <h5>Milestones</h5>
+              <div
+                *ngFor="let milestone of order.milestones"
+                class="milestone-card p-2 border rounded mb-2"
+              >
+                <p><strong>Price:</strong> {{ milestone.price | currency }}</p>
+                <p>
+                  <strong>Start Date:</strong>
+                  {{ milestone.startDate | date : "shortDate" }}
+                </p>
+                <p>
+                  <strong>End Date:</strong>
+                  {{ milestone.endDate | date : "shortDate" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noInProgressOrders>
+          <p>No in-progress orders found.</p>
+        </ng-template>
+      </nb-tab>
+      <nb-tab tabTitle="Completed">
+        <div *ngIf="completedOrders.length > 0; else noCompletedOrders">
+          <div
+            *ngFor="let order of completedOrders"
+            class="order-card mb-3 p-3 border rounded"
+          >
+            <p *ngIf="order?.service">
+              <strong>Service:</strong> {{ order?.service?.name }}
+            </p>
+            <p>
+              <strong>Total Price:</strong> {{ order.totalPrice | currency }}
+            </p>
+            <p><strong>Description:</strong> {{ order.description }}</p>
+            <p>
+              <strong>Start Date:</strong>
+              {{ order.startDate | date : "shortDate" }}
+            </p>
+            <p>
+              <strong>End Date:</strong>
+              {{ order.endDate | date : "shortDate" }}
+            </p>
+            <div *ngIf="order.milestones?.length > 0" class="mt-4">
+              <h5>Milestones</h5>
+              <div
+                *ngFor="let milestone of order.milestones"
+                class="milestone-card p-2 border rounded mb-2"
+              >
+                <p><strong>Price:</strong> {{ milestone.price | currency }}</p>
+                <p>
+                  <strong>Start Date:</strong>
+                  {{ milestone.startDate | date : "shortDate" }}
+                </p>
+                <p>
+                  <strong>End Date:</strong>
+                  {{ milestone.endDate | date : "shortDate" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noCompletedOrders>
+          <p>No completed orders found.</p>
+        </ng-template>
+      </nb-tab>
+    </nb-tabset>
+  </div>
+</div>

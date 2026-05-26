@@ -1,0 +1,156 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+          <h3 class="mt-2">ServiceProviders</h3>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-12">
+        <p-table
+          #groupsTable
+          [value]="ServiceProviders"
+          [loading]="loading"
+          [showCurrentPageReport]="true"
+          selectionMode="single"
+          responsiveLayout="scroll"
+          selectionMode="single"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col">
+                Sr No
+                <p-sortIcon field="id"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="fullName">
+                Name
+                <p-sortIcon field="fullName"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="gender">
+                Gender
+                <p-sortIcon field="gender"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="businessAddress">
+                Business Address
+                <p-sortIcon field="businessAddress"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="businessPhoneNumber">
+                Phone
+                <p-sortIcon field="businessPhoneNumber"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="streetAddress">
+                Street Address
+                <p-sortIcon field="streetAddress"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="city">
+                City
+                <p-sortIcon field="city"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="state">
+                State
+                <p-sortIcon field="state"></p-sortIcon>
+              </th>
+              <th scope="col">Approve</th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-ServiceProvider let-i="rowIndex">
+            <tr>
+              <td class="table-cell m-1">{{ i + 1 }}</td>
+              <td class="table-cell">{{ ServiceProvider.fullName }}</td>
+              <td class="table-cell">{{ ServiceProvider.gender }}</td>
+              <td class="table-cell">{{ ServiceProvider.businessAddress }}</td>
+              <td class="table-cell">
+                {{ ServiceProvider.businessPhoneNumber }}
+              </td>
+              <td class="table-cell">{{ ServiceProvider.streetAddress }}</td>
+              <td class="table-cell">{{ ServiceProvider.city }}</td>
+              <td class="table-cell">{{ ServiceProvider.state }}</td>
+              <td class="table-cell">
+                <button
+                  nbButton
+                  [disabled]="ServiceProvider.isApproved"
+                  status="success"
+                  style="margin-right: 5px"
+                  type="button"
+                  (click)="onApprove(ServiceProvider)"
+                >
+                  <nb-icon icon="checkmark-outline"></nb-icon>
+                </button>
+
+                <button nbButton status="warning" type="button">
+                  <nb-icon
+                    icon="eye"
+                    [routerLink]="[
+                      '/pages/management/serviceProvider-details',
+                      ServiceProvider.userId,
+                      ServiceProvider.isApproved
+                    ]"
+                  ></nb-icon>
+                </button>
+                <button
+                  nbButton
+                  status="danger"
+                  style="margin-left: 5px; margin-right: 5px"
+                  type="button"
+                  (click)="openDialog(ServiceProvider)"
+                >
+                  <nb-icon icon="close-outline"></nb-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<!-- Add/Edit/Delete Event Modal -->
+<ng-template #rejectionReasonDialog>
+  <nb-card>
+    <nb-card-header>
+      <h2>Add New</h2>
+    </nb-card-header>
+
+    <nb-card-body>
+      <form
+        [formGroup]="ServiceProviderForm"
+        class="px-4 custom-width"
+        (ngSubmit)="disapprove()"
+      >
+        <nb-form-field class="my-3">
+          <div class="my-3 d-flex align-items-center justify-content-between">
+            <textarea
+              [multiple]="true"
+              id="rejectionReason"
+              type="text"
+              class="mb-2"
+              formControlName="rejectionReason"
+              nbInput
+              fullWidth
+              placeholder="Enter Rejection Reason"
+            ></textarea>
+          </div>
+        </nb-form-field>
+        <div class="my-3 d-flex justify-content-between">
+          <div class="">
+            <button
+              type="submit"
+              nbButton
+              status="danger"
+              class="ml-2"
+              size="medium"
+            >
+              Disapprove
+            </button>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</ng-template>

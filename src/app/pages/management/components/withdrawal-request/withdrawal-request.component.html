@@ -1,0 +1,79 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+          <h3 class="mt-2">Withdrawal Request</h3>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-12">
+        <p-table
+          #groupsTable
+          [value]="withdrawalRequests"
+          [loading]="loading"
+          [showCurrentPageReport]="true"
+          selectionMode="single"
+          responsiveLayout="scroll"
+          selectionMode="single"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col">
+                Id
+                <p-sortIcon field="id"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="fullName">
+                ServiceProvider Name
+                <p-sortIcon field="fullName"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="amount">
+                Amount
+                <p-sortIcon field="amount"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="gender">
+                Created On
+                <p-sortIcon field="gender"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="businessAddress">
+                Status
+                <p-sortIcon field="businessAddress"></p-sortIcon>
+              </th>
+
+              <th scope="col">Action</th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-withdrawalRequest>
+            <tr>
+              <td>{{ withdrawalRequest.id }}</td>
+              <td>{{ withdrawalRequest.serviceProviderName }}</td>
+              <td>{{ withdrawalRequest.amount }}</td>
+              <td>{{ withdrawalRequest.createOn | dateTime }}</td>
+              <td>
+                {{ WithDrawalStatus[withdrawalRequest.withDrawalStatusId] }}
+              </td>
+
+              <td>
+                <div class="row">
+                  <button nbButton status="warning" type="button">
+                    <nb-icon
+                      icon="eye"
+                      [routerLink]="[
+                        '/pages/management/serviceProvider-withdrawal-history',
+                        withdrawalRequest.userId
+                      ]"
+                    ></nb-icon>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

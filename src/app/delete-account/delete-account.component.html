@@ -1,0 +1,89 @@
+<nb-layout
+  ><nb-layout-column>
+    <div class="delete-account-container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+          <div class="card delete-account-card">
+            <div class="card-header delete-account-header">
+              <div class="header-content">
+                <i class="fas fa-trash-alt header-icon"></i>
+                <h4 class="mb-0">Delete Account</h4>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="alert alert-warning warning-alert" role="alert">
+                <strong>Warning:</strong> This action is permanent and cannot be
+                undone. All your data, including your profile, settings, and
+                history will be permanently deleted.
+              </div>
+
+              <form
+                (ngSubmit)="submit()"
+                #f="ngForm"
+                class="delete-account-form"
+              >
+                <div class="form-group">
+                  <label for="email" class="form-label">
+                    <i class="fas fa-envelope"></i>
+                    Email Address
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    [(ngModel)]="email"
+                    required
+                    placeholder="Enter your email address"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="password" class="form-label">
+                    <i class="fas fa-lock"></i>
+                    Password
+                  </label>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    [(ngModel)]="password"
+                    required
+                    placeholder="Enter your password"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="info-box">
+                  <i class="fas fa-info-circle"></i>
+                  <p class="mb-0">
+                    Please confirm your identity by entering your email and
+                    password to proceed with account deletion.
+                  </p>
+                </div>
+
+                <div class="actions">
+                  <button
+                    type="submit"
+                    class="btn btn-danger btn-lg"
+                    [disabled]="loading || !f.form.valid"
+                  >
+                    <span
+                      *ngIf="loading"
+                      class="spinner-border spinner-border-sm mr-2"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    <i class="fas fa-trash-alt" *ngIf="!loading"></i>
+                    <span *ngIf="!loading" class="ml-1">Delete My Account</span>
+                    <span *ngIf="loading">Deleting...</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-layout-column></nb-layout
+>

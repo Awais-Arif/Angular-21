@@ -1,0 +1,137 @@
+<!-- profile.component.html -->
+
+<nb-card *ngIf="profileData.id">
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+          <h3 class="mt-2">Customer Details</h3>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="profile-container">
+      <div class="profile-header p-3">
+        <div class="row">
+          <div class="custom-avatar mr-4" *ngIf="profileData.profilePicture">
+            <img [src]="imageUrl + profileData.profilePicture" alt="" />
+          </div>
+          <div class="ServiceProvider-info">
+            <h1 style="margin: 5px">
+              {{ profileData.user.firstName }} {{ profileData.user.lastName }}
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-details">
+        <div class="ServiceProvider-details">
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <p><strong>Email:</strong> {{ profileData.user.email }}</p>
+              <p>
+                <strong>Phone Number:</strong>
+                {{ profileData.user.phoneNumber }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Customer Service Requests -->
+          <div class="row mt-4">
+            <nb-card-body><h3>Customer Service Requests</h3></nb-card-body>
+            <div class="col-md-12">
+              <nb-card>
+                <nb-card-body>
+                  <nb-tabset>
+                    <nb-tab tabTitle="Customer Service Requests">
+                      <div *ngIf="serviceRequests?.length > 0; else noRequests">
+                        <nb-card
+                          *ngFor="let csr of serviceRequests"
+                          class="mb-3"
+                        >
+                          <nb-card-header>
+                            <h5>{{ csr.title }}</h5>
+                          </nb-card-header>
+                          <nb-card-body>
+                            <p>
+                              <strong>Service Type:</strong>
+                              {{ csr.serviceType.name }}
+                            </p>
+                            <p>
+                              <strong>Description:</strong>
+                              {{ csr.description }}
+                            </p>
+                            <p>
+                              <strong>Budget:</strong>
+                              {{ csr.budget | currency }}
+                            </p>
+                            <div class="csr-images">
+                              <img
+                                *ngFor="let image of csr.images"
+                                [src]="imageUrl + image"
+                                alt="CSR Image"
+                                class="img-thumbnail mr-2"
+                                style="width: 100px; height: 100px"
+                              />
+                            </div>
+                          </nb-card-body>
+                        </nb-card>
+                      </div>
+                      <ng-template #noRequests>
+                        <p>No service requests available.</p>
+                      </ng-template>
+                    </nb-tab>
+                    <nb-tab tabTitle="Customer Service Requests By Service">
+                      <div
+                        *ngIf="
+                          serviceRequestsByService?.length > 0;
+                          else noRequests
+                        "
+                      >
+                        <nb-card
+                          *ngFor="let csr of serviceRequestsByService"
+                          class="mb-3"
+                        >
+                          <nb-card-header>
+                            <h5>{{ csr.title }}</h5>
+                          </nb-card-header>
+                          <nb-card-body>
+                            <p>
+                              <strong>Service Type:</strong>
+                              {{ csr.serviceType.name }}
+                            </p>
+                            <p>
+                              <strong>Description:</strong>
+                              {{ csr.description }}
+                            </p>
+                            <p>
+                              <strong>Budget:</strong>
+                              {{ csr.budget | currency }}
+                            </p>
+                            <div class="csr-images">
+                              <img
+                                *ngFor="let image of csr.images"
+                                [src]="imageUrl + image"
+                                alt="CSR Image"
+                                class="img-thumbnail mr-2"
+                                style="width: 100px; height: 100px"
+                              />
+                            </div>
+                          </nb-card-body>
+                        </nb-card>
+                      </div>
+                      <ng-template #noRequests>
+                        <p>No service requests available.</p>
+                      </ng-template>
+                    </nb-tab>
+                  </nb-tabset>
+                </nb-card-body>
+              </nb-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,95 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+          <h3 class="mt-2">Rejection Reasons</h3>
+          <button nbButton size="small" type="button" (click)="openDialog()" status="success">
+            New
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-12">
+        <p-table
+          #groupsTable
+          [value]="rejectionReasons"
+          [loading]="loading"
+          [showCurrentPageReport]="true"
+          selectionMode="single"
+          responsiveLayout="scroll"
+          selectionMode="single"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col">
+                Id
+                <p-sortIcon field="id"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="name">
+                Name
+                <p-sortIcon field="stores"></p-sortIcon>
+              </th>
+              <th scope="col">
+                Delete
+              </th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-rejectionReason>
+            <tr >
+              <td>{{ rejectionReason.id }}</td>
+              <td>{{ rejectionReason.name}}</td>
+              <td>
+                <button nbButton status="danger" type="button" (click)="onDelete(rejectionReason)">
+                  <nb-icon icon="trash" ></nb-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      </div>
+  </nb-card-body>
+</nb-card>
+
+<!-- Add/Edit/Delete Event Modal -->
+<ng-template #rejectionReasonDialog>
+  <nb-card>
+    <nb-card-header>
+      <h2>Add New</h2>
+    </nb-card-header>
+
+    <nb-card-body>
+      <form [formGroup]="rejectionReasonForm" class="px-4 custom-width" (ngSubmit)="onAddRejectionReason()">
+        <nb-form-field class="my-3">
+          <div class="my-3 d-flex align-items-center justify-content-between">
+            <label for="name" class="mr-4">
+            Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              class="mb-2"
+              formControlName="name"
+              nbInput
+              fullWidth
+              placeholder="Enter Rejection Reason Name"
+            />
+          </div>
+        </nb-form-field>
+        <div class="my-3 d-flex justify-content-between">
+          <div class="">
+            <button type="submit" nbButton status="success" class="ml-2"  size="medium">
+              Save
+            </button>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</ng-template>

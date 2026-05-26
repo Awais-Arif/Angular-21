@@ -1,0 +1,89 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-between">
+          <h3 class="mt-2">Complaints</h3>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-12">
+        <p-table
+          #groupsTable
+          [value]="Complaints"
+          [loading]="loading"
+          [showCurrentPageReport]="true"
+          selectionMode="single"
+          responsiveLayout="scroll"
+          selectionMode="single"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col" pSortableColumn="title">
+                Title
+                <p-sortIcon field="title"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="description">
+                Description
+                <p-sortIcon field="description"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="userType">
+                UserType
+                <p-sortIcon field="userType"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="status">
+                Status
+                <p-sortIcon field="status"></p-sortIcon>
+              </th>
+              <th scope="col">Action</th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-Complaint>
+            <tr>
+              <td class="table-cell">{{ Complaint.title }}</td>
+              <td class="table-cell">{{ Complaint.description }}</td>
+              <td class="table-cell">{{ Complaint.userType }}</td>
+              <td class="table-cell">
+                {{ ComplaintStatus[Complaint.status] }}
+              </td>
+              <td class="table-cell">
+                <button
+                  nbButton
+                  [disabled]="
+                    Complaint.status === ComplaintStatus.InProgress ||
+                    Complaint.status === ComplaintStatus.Closed
+                  "
+                  status="warning"
+                  style="margin-right: 5px"
+                  type="button"
+                  (click)="
+                    updateStatus(Complaint.id, ComplaintStatus.InProgress)
+                  "
+                  [nbTooltip]="ComplaintStatus[2]"
+                >
+                  <nb-icon icon="sync-outline"></nb-icon>
+                </button>
+
+                <button
+                  nbButton
+                  [disabled]="Complaint.status === ComplaintStatus.Closed"
+                  status="danger"
+                  style="margin-left: 5px; margin-right: 5px"
+                  type="button"
+                  (click)="updateStatus(Complaint.id, ComplaintStatus.Closed)"
+                  [nbTooltip]="ComplaintStatus[3]"
+                >
+                  <nb-icon icon="close-outline"></nb-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
