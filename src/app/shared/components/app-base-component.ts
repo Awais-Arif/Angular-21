@@ -19,8 +19,8 @@ export abstract class AppBaseComponent implements OnDestroy {
   }
 
   constructor(@Inject(Injector) injector: Injector | undefined) {
-    this.toastService = injector.get(ToastService);
-    this.confirmationDialogService = injector.get(ConfirmationDialogService);
+    this.toastService = injector!.get(ToastService);
+    this.confirmationDialogService = injector!.get(ConfirmationDialogService);
   }
 
   /**The subscription sink object that stores all subscriptions */
@@ -37,15 +37,17 @@ export abstract class AppBaseComponent implements OnDestroy {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
-        if (!control.valid || control.hasError) {
+        if (!control.valid) {
           control.markAsTouched({ onlySelf: true });
           control.markAsDirty({ onlySelf: true });
         }
       } else if (control instanceof FormGroup) {
         this.validateAllFormFields(control);
       } else if (control instanceof FormArray) {
-        control.controls.forEach((innerFormGroup: FormGroup) => {
-          this.validateAllFormFields(innerFormGroup);
+        control.controls.forEach((innerControl) => {
+          if (innerControl instanceof FormGroup) {
+            this.validateAllFormFields(innerControl);
+          }
         });
       }
     });

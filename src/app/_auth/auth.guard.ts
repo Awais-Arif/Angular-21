@@ -7,16 +7,16 @@ import { tap } from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard  {
-  constructor(private atuhService: NbAuthService, private router: Router){}
-  canActivate(){
+export class AuthGuard {
+  constructor(private atuhService: NbAuthService, private router: Router) { }
+  canActivate() {
     return this.atuhService.isAuthenticated()
-    .pipe(
-      tap(authenticated => {
-        if (!authenticated) {
-          this.router.navigate(['auth/login']);
-        }
-      }),
-    );
+      .pipe(
+        tap(authenticated => {
+          if (!authenticated) {
+            this.router.navigate(['auth/login']);
+          }
+        }),
+      );
   }
 }

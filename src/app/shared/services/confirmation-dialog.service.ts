@@ -6,14 +6,13 @@ import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmat
   providedIn: 'root',
 })
 export class ConfirmationDialogService {
-  private dialogRef: NbDialogRef<ConfirmationDialogComponent>;
 
-  title: string;
-  message: string;
-  btnOkText: string;
-  btnCancelText: string;
+  title!: string;
+  message!: string;
+  btnOkText!: string;
+  btnCancelText: string | undefined;
 
-  constructor(private dialogService: NbDialogService) {}
+  constructor(private dialogService: NbDialogService) { }
 
   public confirm(
     message: string,

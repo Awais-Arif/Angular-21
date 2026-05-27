@@ -22,7 +22,7 @@ const routes: Routes = [{
     {
       path: 'dash-board',
       component: DashBoardComponent,
-      canActivate: [AuthGuard]
+      // canActivate: [AuthGuard]
     },
     {
       path: 'therpay-type',
