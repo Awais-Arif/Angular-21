@@ -20,60 +20,62 @@ import { SharedModule } from './shared/shared.module';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { TableModule } from 'primeng/table';
 
-@NgModule({ declarations: [AppComponent, ConfirmationDialogComponent],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        NbSidebarModule.forRoot(),
-        NbMenuModule.forRoot(),
-        NbDatepickerModule.forRoot(),
-        NbDialogModule.forRoot(),
-        NbWindowModule.forRoot(),
-        NbToastrModule.forRoot(),
-        TableModule,
-        NbChatModule.forRoot({
-            messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
-        }),
-        CoreModule.forRoot(),
-        ThemeModule.forRoot(),
-        NbAuthModule.forRoot({
-            strategies: [
-                NbPasswordAuthStrategy.setup({
-                    name: 'email',
-                    token: {
-                        class: NbAuthJWTToken,
-                        key: 'token'
-                    },
-                    baseEndpoint: 'http://localhost:64167/api/',
-                    login: {
-                        endpoint: 'Account/CreateToken',
-                    }
-                })
-            ],
-            forms: {
-                login: {
-                // Customize login form options here
-                },
-                register: {
-                    // Set 'hidden' to true to hide the registration form
-                    hidden: true,
-                },
-            },
-        }),
-        SharedModule.forRoot(),
-        NbLayoutModule], providers: [
-        AuthGuard,
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: MockHttpInterceptor,
-            multi: true
+@NgModule({
+  declarations: [AppComponent, ConfirmationDialogComponent],
+  bootstrap: [AppComponent], imports: [BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbWindowModule.forRoot(),
+    NbToastrModule.forRoot(),
+    TableModule,
+    NbChatModule.forRoot({
+      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
+    }),
+    CoreModule.forRoot(),
+    ThemeModule.forRoot(),
+    NbAuthModule.forRoot({
+      strategies: [
+        NbPasswordAuthStrategy.setup({
+          name: 'email',
+          token: {
+            class: NbAuthJWTToken,
+            key: 'token'
+          },
+          baseEndpoint: 'http://localhost:64167/api/',
+          login: {
+            endpoint: 'Account/CreateToken',
+          }
+        })
+      ],
+      forms: {
+        login: {
+          // Customize login form options here
         },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: TokenInterceptor,
-            multi: true
+        register: {
+          // Set 'hidden' to true to hide the registration form
+          hidden: true,
         },
-        provideHttpClient(withInterceptorsFromDi())
-    ] })
+      },
+    }),
+    SharedModule.forRoot(),
+    NbLayoutModule], providers: [
+      AuthGuard,
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: MockHttpInterceptor,
+        multi: true
+      },
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: TokenInterceptor,
+        multi: true
+      },
+      provideHttpClient(withInterceptorsFromDi())
+    ]
+})
 export class AppModule {
 }

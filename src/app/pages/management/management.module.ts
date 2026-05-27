@@ -25,7 +25,6 @@ import { SharedModule } from '../../shared/shared.module';
 import { PagesModule } from '../pages.module';
 import { LicenseTypeComponent } from './components/license-type/license-type.component';
 import { OrdersComponent } from './components/orders/orders.component';
-import { RejectionReasonComponent } from './components/rejection-reason/rejection-reason.component';
 import { WithdrawalRequestComponent } from './components/withdrawal-request/withdrawal-request.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
@@ -44,12 +43,12 @@ const components = [
   CustomerDetailsComponent,
   LicenseTypeComponent,
   OrdersComponent,
-  RejectionReasonComponent,
   WithdrawalRequestComponent,
   ServiceProviderDetailsComponent,
   ServiceProviderWithdrawalHistoryComponent,
   SettingsComponent,
   DashBoardComponent,
+  ComplaintsComponent,
 ];
 @NgModule({
   imports: [
@@ -66,19 +65,14 @@ const components = [
     NbSpinnerModule,
     NbListModule,
     NbRadioModule,
-    NbCardModule,
     NbPopoverModule,
     NbSearchModule,
-    NbIconModule,
     NbAlertModule,
     ThemeModule,
     ManagementRoutingModule,
     TableModule,
     NbProgressBarModule,
   ],
-  declarations: [
-    ...components,
-    ComplaintsComponent,
-  ],
+  declarations: [...components],
 })
 export class ManagementModule { }
