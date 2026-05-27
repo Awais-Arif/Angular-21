@@ -7,7 +7,7 @@ import { OrderService } from '../../services/order.service';
 @Component({
     selector: 'ngx-orders',
     templateUrl: './orders.component.html',
-    
+    standalone: false
 })
 export class OrdersComponent extends AppBaseComponent implements OnInit {
   inProgressOrders: OrderDetailModel[] = [];

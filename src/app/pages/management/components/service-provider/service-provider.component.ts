@@ -8,7 +8,7 @@ import { ServiceProviderService } from '../../services/service-provider.service'
 @Component({
     selector: 'ngx-serviceprovider',
     templateUrl: './service-provider.component.html',
-    
+    standalone: false
 })
 export class ServiceProviderComponent extends AppBaseComponent implements OnInit {
   @ViewChild('rejectionReasonDialog') dialog: TemplateRef<NbCardComponent>;

@@ -7,7 +7,7 @@ import { ConfirmationDialogService } from '../services/confirmation-dialog.servi
 import { TableModule } from 'primeng/table';
 @Component({
     template: '',
-    
+    standalone: false
 })
 export abstract class AppBaseComponent implements OnDestroy {
   protected toastService: ToastService;

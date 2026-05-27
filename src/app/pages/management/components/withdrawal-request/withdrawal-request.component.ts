@@ -7,7 +7,7 @@ import { WithDrawalStatus } from '../../models/withdrawal-status.model';
 @Component({
     selector: 'ngx-withdrawal-request',
     templateUrl: './withdrawal-request.component.html',
-    
+    standalone: false
 })
 export class WithdrawalRequestComponent extends AppBaseComponent implements OnInit {
   public withdrawalRequests: WithdrawalRequest[];

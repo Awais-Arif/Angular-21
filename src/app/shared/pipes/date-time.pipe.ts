@@ -3,7 +3,7 @@ import * as moment from 'moment';
 
 @Pipe({
     name: 'dateTime',
-    
+    standalone: false
 })
 export class DateTimePipe implements PipeTransform {
   transform(value: Date): string {

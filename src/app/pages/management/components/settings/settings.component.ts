@@ -8,7 +8,7 @@ import { Settings } from '../../models/settings.model';
 @Component({
     selector: 'ngx-settings',
     templateUrl: './settings.component.html',
-    
+    standalone: false
 })
 export class SettingsComponent extends AppBaseComponent implements OnInit {
   public dialogRef: NbDialogRef<NbCardComponent>;

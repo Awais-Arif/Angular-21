@@ -12,12 +12,11 @@ import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular
            (blur)="hideInput()"
            (input)="onInput($event)">
   `,
-    
+    standalone: false
 })
 export class SearchInputComponent {
   @ViewChild('input', { static: true }) input: ElementRef;
 
-  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() search: EventEmitter<string> = new EventEmitter<string>();
 
   isInputShown = false;

@@ -9,7 +9,7 @@ import { environment } from '../../../../../../environments/environment';
     selector: 'ngx-customer-details',
     templateUrl: './customer-details.component.html',
     styleUrls: ['./customer-details.component.scss'],
-    
+    standalone: false
 })
 export class CustomerDetailsComponent extends AppBaseComponent implements OnInit {
 
