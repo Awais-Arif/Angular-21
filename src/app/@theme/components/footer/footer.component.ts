@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     <span class="created-by">
       Created with ♥ by System Bytes
     </span>
-  `,
-    standalone: false
+  `
 })
 export class FooterComponent {
 }

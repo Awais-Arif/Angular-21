@@ -61,21 +61,20 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, ...NB_MODULES],
-  exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES],
+    imports: [CommonModule, ...NB_MODULES, ...COMPONENTS, ...PIPES],
+    exports: [CommonModule, ...PIPES, ...COMPONENTS],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {
     return {
       ngModule: ThemeModule,
       providers: [
-        ...NbThemeModule.forRoot(
+        ...(NbThemeModule.forRoot(
           {
             name: 'default',
           },
           [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME ],
-        ).providers,
+        ).providers || []),
       ],
     };
   }

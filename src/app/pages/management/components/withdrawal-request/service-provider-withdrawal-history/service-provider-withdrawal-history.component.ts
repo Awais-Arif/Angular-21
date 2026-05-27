@@ -4,11 +4,13 @@ import { WithdrawalRequestService } from '../../../services/withdrawal-request.s
 import { AppBaseComponent } from '../../../../../shared/components/app-base-component';
 import { ServiceProviderService } from '../../../services/service-provider.service';
 import { ServiceProviderDetails } from '../../../models/service-provider-details.model';
+import { DatePipe } from '@angular/common';
+import { NbCardModule, NbProgressBarModule } from '@nebular/theme';
 @Component({
     selector: 'ngx-serviceprovider-withdrawal-history',
     templateUrl: './service-provider-withdrawal-history.component.html',
     styleUrls: ['./service-provider-withdrawal-history.component.scss'],
-    standalone: false
+    imports: [NbCardModule, NbProgressBarModule, DatePipe]
 })
 export class ServiceProviderWithdrawalHistoryComponent extends AppBaseComponent {
 

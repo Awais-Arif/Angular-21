@@ -2,12 +2,15 @@ import { Component } from '@angular/core';
 import { ToastService } from '../shared/services/toast.service';
 import { UserService } from './../shared/services/user.service';
 import { ConfirmationDialogService } from '../shared/services/confirmation-dialog.service';
+import { NbLayoutModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
     selector: 'ngx-delete-account',
     templateUrl: './delete-account.component.html',
     styleUrls: ['./delete-account.component.scss'],
-    standalone: false
+    imports: [NbLayoutModule, FormsModule]
 })
 export class DeleteAccountComponent {
   email = '';

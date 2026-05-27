@@ -23,47 +23,38 @@ import { ThemeModule } from '../@theme/theme.module';
 import { TableModule } from 'primeng/table';
 
 @NgModule({
-  exports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ThemeModule,
-    TableModule,
-    // Nebular
-    NbButtonModule,
-    NbCardModule,
-    NbFormFieldModule,
-    NbIconModule,
-    NbInputModule,
-    NbMenuModule,
-    NbSelectModule,
-    NbSpinnerModule,
-    NbListModule,
-    NbRadioModule,
-    NbTooltipModule,
-    NbTabsetModule,
-    // Other
-
-    YesNoPipe,
-
-    DateTimePipe,
-  ],
-  declarations: [
-    // Directives
-
-    // Pipes
-
-    DateTimePipe,
-
-    YesNoPipe,
-  ],
-  providers: [
-
-
-    DateTimePipe,
-
-    YesNoPipe,
-  ],
+    imports: [
+        // Directives
+        // Pipes
+        DateTimePipe,
+        YesNoPipe],
+    exports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ThemeModule,
+        TableModule,
+        // Nebular
+        NbButtonModule,
+        NbCardModule,
+        NbFormFieldModule,
+        NbIconModule,
+        NbInputModule,
+        NbMenuModule,
+        NbSelectModule,
+        NbSpinnerModule,
+        NbListModule,
+        NbRadioModule,
+        NbTooltipModule,
+        NbTabsetModule,
+        // Other
+        YesNoPipe,
+        DateTimePipe,
+    ],
+    providers: [
+        DateTimePipe,
+        YesNoPipe,
+    ],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {

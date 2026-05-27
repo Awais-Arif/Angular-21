@@ -3,11 +3,17 @@ import { AppBaseComponent } from '../../../../shared/components/app-base-compone
 import { WithdrawalRequest } from '../../models/withdrawal-request.model';
 import { WithdrawalRequestService } from '../../services/withdrawal-request.service';
 import { WithDrawalStatus } from '../../models/withdrawal-status.model';
+import { NbCardModule, NbButtonModule, NbIconModule } from '@nebular/theme';
+import { Bind } from 'primeng/bind';
+import { TableModule } from 'primeng/table';
+import { PrimeTemplate } from 'primeng/api';
+import { RouterLink } from '@angular/router';
+import { DateTimePipe } from '../../../../shared/pipes/date-time.pipe';
 
 @Component({
     selector: 'ngx-withdrawal-request',
     templateUrl: './withdrawal-request.component.html',
-    standalone: false
+    imports: [NbCardModule, Bind, TableModule, PrimeTemplate, NbButtonModule, NbIconModule, RouterLink, DateTimePipe]
 })
 export class WithdrawalRequestComponent extends AppBaseComponent implements OnInit {
   public withdrawalRequests: WithdrawalRequest[];

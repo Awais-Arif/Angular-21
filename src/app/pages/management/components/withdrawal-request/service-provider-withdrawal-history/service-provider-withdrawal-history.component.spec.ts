@@ -7,8 +7,8 @@ describe('ServiceProviderWithdrawalHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ServiceProviderWithdrawalHistoryComponent ]
-    })
+    imports: [ServiceProviderWithdrawalHistoryComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ServiceProviderWithdrawalHistoryComponent);

@@ -8,30 +8,28 @@ import { NbButtonModule, NbCardModule, NbFormFieldModule, NbIconModule, NbInputM
 import { ThemeModule } from '../@theme/theme.module';
 
 @NgModule({
-  imports: [
-    SharedModule.forRoot(),
-    NbButtonModule,
-    NbCardModule,
-    NbFormFieldModule,
-    NbIconModule,
-    NbEvaIconsModule,
-    NbInputModule,
-    NbMenuModule,
-    NbSelectModule,
-    NbSpinnerModule,
-    NbListModule,
-    NbRadioModule,
-    NbCardModule,
-    NbPopoverModule,
-    NbSearchModule,
-    NbIconModule,
-    NbAlertModule,
-    ThemeModule,
-    DeleteAccountRoutingModule,
-    NbLayoutModule
-  ],
-  declarations: [
-    DeleteAccountComponent
-  ]
+    imports: [
+        SharedModule.forRoot(),
+        NbButtonModule,
+        NbCardModule,
+        NbFormFieldModule,
+        NbIconModule,
+        NbEvaIconsModule,
+        NbInputModule,
+        NbMenuModule,
+        NbSelectModule,
+        NbSpinnerModule,
+        NbListModule,
+        NbRadioModule,
+        NbCardModule,
+        NbPopoverModule,
+        NbSearchModule,
+        NbIconModule,
+        NbAlertModule,
+        ThemeModule,
+        DeleteAccountRoutingModule,
+        NbLayoutModule,
+        DeleteAccountComponent
+    ]
 })
 export class DeleteAccountModule { }

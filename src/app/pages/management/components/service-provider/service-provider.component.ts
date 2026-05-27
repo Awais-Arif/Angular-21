@@ -1,14 +1,18 @@
 import { Component, Injector, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NbCardComponent, NbDialogRef, NbDialogService } from '@nebular/theme';
+import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NbCardComponent, NbDialogRef, NbDialogService, NbCardModule, NbButtonModule, NbIconModule, NbFormFieldModule, NbInputModule } from '@nebular/theme';
 import { AppBaseComponent } from '../../../../shared/components/app-base-component';
 import { ServiceProvider } from '../../models/service-provider.model';
 import { ServiceProviderService } from '../../services/service-provider.service';
+import { Bind } from 'primeng/bind';
+import { TableModule } from 'primeng/table';
+import { PrimeTemplate } from 'primeng/api';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'ngx-serviceprovider',
     templateUrl: './service-provider.component.html',
-    standalone: false
+    imports: [NbCardModule, Bind, TableModule, PrimeTemplate, NbButtonModule, NbIconModule, RouterLink, FormsModule, ReactiveFormsModule, NbFormFieldModule, NbInputModule]
 })
 export class ServiceProviderComponent extends AppBaseComponent implements OnInit {
   @ViewChild('rejectionReasonDialog') dialog: TemplateRef<NbCardComponent>;

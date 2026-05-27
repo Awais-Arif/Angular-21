@@ -1,26 +1,29 @@
 <!-- profile.component.html -->
 
-<nb-card *ngIf="profileData.id">
-  <nb-card-header>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="d-flex justify-content-between">
-          <h3 class="mt-2">ServiceProvider Details</h3>
-          <div class="row" *ngIf="!isApproved">
-            <button
-              nbButton
-              size="tiny"
-              class="mr-2"
-              type="button"
-              (click)="onApprove()"
-              status="success"
-            >
-              Approve
-            </button>
-            <!-- <button nbButton size="tiny" type="button" (click)="abc()" status="danger">
-              Disapprove
-            </button> -->
-          </div>
+@if (profileData.id) {
+  <nb-card>
+    <nb-card-header>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-between">
+            <h3 class="mt-2">ServiceProvider Details</h3>
+            @if (!isApproved) {
+              <div class="row">
+                <button
+                  nbButton
+                  size="tiny"
+                  class="mr-2"
+                  type="button"
+                  (click)="onApprove()"
+                  status="success"
+                  >
+                  Approve
+                </button>
+                <!-- <button nbButton size="tiny" type="button" (click)="abc()" status="danger">
+                Disapprove
+              </button> -->
+            </div>
+          }
         </div>
       </div>
     </div>
@@ -29,9 +32,11 @@
     <div class="profile-container">
       <div class="profile-header p-3">
         <div class="row">
-          <div class="custom-avatar" *ngIf="profileData.profilePicture">
-            <img [src]="imageUrl + profileData.profilePicture" alt="" />
-          </div>
+          @if (profileData.profilePicture) {
+            <div class="custom-avatar">
+              <img [src]="imageUrl + profileData.profilePicture" alt="" />
+            </div>
+          }
           <div class="ServiceProvider-info ml-4">
             <h1 style="margin: 5px">
               {{ profileData.user.firstName }} {{ profileData.user.lastName }}
@@ -40,7 +45,6 @@
           </div>
         </div>
       </div>
-
       <div class="profile-details">
         <div class="ServiceProvider-details">
           <div class="row mt-4">
@@ -59,7 +63,6 @@
               </p>
             </div>
           </div>
-
           <div class="row mt-4">
             <div class="col-md-6">
               <p>
@@ -78,7 +81,6 @@
               <p><strong>City:</strong> {{ profileData.city }}</p>
             </div>
           </div>
-
           <div class="row mt-4">
             <p class="col-md-6">
               <strong>State:</strong> {{ profileData.state }}
@@ -89,17 +91,19 @@
           <div class="row border-top p-3">
             <div class="col-md-6">
               <h2>Qualifications</h2>
-              <div *ngFor="let qualification of profileData.qualifications">
-                <p><strong>Name:</strong> {{ qualification.name }}</p>
-                <p>
-                  <strong>Institution:</strong>
-                  {{ qualification.institutionName }}
-                </p>
-                <p>
-                  <strong>Year:</strong>
-                  {{ qualification.procurementYear | date : "shortDate" }}
-                </p>
-              </div>
+              @for (qualification of profileData.qualifications; track qualification) {
+                <div>
+                  <p><strong>Name:</strong> {{ qualification.name }}</p>
+                  <p>
+                    <strong>Institution:</strong>
+                    {{ qualification.institutionName }}
+                  </p>
+                  <p>
+                    <strong>Year:</strong>
+                    {{ qualification.procurementYear | date : "shortDate" }}
+                  </p>
+                </div>
+              }
             </div>
             <div class="col-md-6">
               <h2>Insurance</h2>
@@ -140,9 +144,11 @@
           <div class="row border-top p-3">
             <div class="col-md-6">
               <h2>ServiceProvider Therapies</h2>
-              <div *ngFor="let therapy of profileData.serviceProviderTherapies">
-                <p>{{ therapy.therapyName }}</p>
-              </div>
+              @for (therapy of profileData.serviceProviderTherapies; track therapy) {
+                <div>
+                  <p>{{ therapy.therapyName }}</p>
+                </div>
+              }
             </div>
             <div class="col-md-6">
               <h2>License Information</h2>
@@ -157,35 +163,37 @@
               <p>
                 <strong>Issue Date:</strong>
                 {{
-                  profileData.serviceProviderLicense?.issueDate
-                    | date : "shortDate"
+                profileData.serviceProviderLicense?.issueDate
+                | date : "shortDate"
                 }}
               </p>
               <p>
                 <strong>Expiry Date:</strong>
                 {{
-                  profileData.serviceProviderLicense?.expiryDate
-                    | date : "shortDate"
+                profileData.serviceProviderLicense?.expiryDate
+                | date : "shortDate"
                 }}
               </p>
               <p><strong>Front Image:</strong></p>
-              <img
-                *ngIf="profileData.serviceProviderLicense?.frontImage"
-                class="custom-rectangular"
+              @if (profileData.serviceProviderLicense?.frontImage) {
+                <img
+                  class="custom-rectangular"
                 [src]="
                   imageUrl + profileData.serviceProviderLicense?.frontImage
                 "
-                height="200px"
-                alt=""
-              />
+                  height="200px"
+                  alt=""
+                  />
+              }
               <p><strong>Back Image:</strong></p>
-              <img
-                *ngIf="profileData.serviceProviderLicense?.backImage"
-                class="custom-rectangular"
-                [src]="imageUrl + profileData.serviceProviderLicense?.backImage"
-                height="200px"
-                alt=""
-              />
+              @if (profileData.serviceProviderLicense?.backImage) {
+                <img
+                  class="custom-rectangular"
+                  [src]="imageUrl + profileData.serviceProviderLicense?.backImage"
+                  height="200px"
+                  alt=""
+                  />
+              }
             </div>
           </div>
           <!-- Add more license details as needed -->
@@ -194,3 +202,4 @@
     </div>
   </nb-card-body>
 </nb-card>
+}

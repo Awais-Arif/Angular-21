@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
+import { NbThemeService, NbCardModule } from '@nebular/theme';
 import { Subject, interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DashboardService } from '../../services/dashboard.service';
@@ -8,7 +8,7 @@ import { DashboardService } from '../../services/dashboard.service';
     selector: 'ngx-dash-board',
     templateUrl: './dash-board.component.html',
     styleUrls: ['./dash-board.component.scss'],
-    standalone: false
+    imports: [NbCardModule]
 })
 export class DashBoardComponent implements OnDestroy, OnInit {
   private destroy$ = new Subject<void>();

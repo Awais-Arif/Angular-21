@@ -4,12 +4,16 @@ import { AppBaseComponent } from '../../../../shared/components/app-base-compone
 import { ComplaintService } from '../../services/complaint.service';
 import { ComplaintDetailModel } from '../../models/complaint-detail.model';
 import { ComplaintStatus } from './../../models/complaint.model';
+import { NbCardModule, NbButtonModule, NbTooltipModule, NbIconModule } from '@nebular/theme';
+import { Bind } from 'primeng/bind';
+import { TableModule } from 'primeng/table';
+import { PrimeTemplate } from 'primeng/api';
 
 @Component({
     selector: 'ngx-complaints',
     templateUrl: './complaints.component.html',
     styleUrls: ['./complaints.component.scss'],
-    standalone: false
+    imports: [NbCardModule, Bind, TableModule, PrimeTemplate, NbButtonModule, NbTooltipModule, NbIconModule]
 })
 
 

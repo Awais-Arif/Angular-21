@@ -1,7 +1,9 @@
 // @nebular theming framework
-@import "@nebular/theme/styles/theming";
+@forward "@nebular/theme/styles/theming";
+@use "@nebular/theme/styles/theming" as *;
 // @nebular out of the box themes
-@import "@nebular/theme/styles/themes";
+@forward "@nebular/theme/styles/themes";
+@use "@nebular/theme/styles/themes" as *;
 
 $nb-themes: nb-register-theme(
   (

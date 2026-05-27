@@ -1,13 +1,14 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { NbCardComponent, NbDialogRef } from '@nebular/theme';
+import { NbCardComponent, NbDialogRef, NbTabsetModule } from '@nebular/theme';
 import { AppBaseComponent } from '../../../../shared/components/app-base-component';
 import { OrderDetailModel } from '../../models/order-detail.model';
 import { OrderService } from '../../services/order.service';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
     selector: 'ngx-orders',
     templateUrl: './orders.component.html',
-    standalone: false
+    imports: [NbTabsetModule, CurrencyPipe, DatePipe]
 })
 export class OrdersComponent extends AppBaseComponent implements OnInit {
   inProgressOrders: OrderDetailModel[] = [];

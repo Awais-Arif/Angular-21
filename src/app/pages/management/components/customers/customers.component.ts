@@ -2,11 +2,16 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { AppBaseComponent } from '../../../../shared/components/app-base-component';
 import { CustomersService } from '../../services/customer.service';
 import { Customer } from '../../models/customer.model';
+import { NbCardModule, NbButtonModule, NbIconModule } from '@nebular/theme';
+import { Bind } from 'primeng/bind';
+import { TableModule } from 'primeng/table';
+import { PrimeTemplate } from 'primeng/api';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'ngx-customers',
     templateUrl: './customers.component.html',
-    standalone: false
+    imports: [NbCardModule, Bind, TableModule, PrimeTemplate, NbButtonModule, NbIconModule, RouterLink]
 })
 export class CustomersComponent extends AppBaseComponent implements OnInit {
 

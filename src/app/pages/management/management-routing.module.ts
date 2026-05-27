@@ -27,7 +27,7 @@ const routes: Routes = [{
     {
       path: 'therpay-type',
       component: TherapyTypeComponent,
-      canActivate: [AuthGuard]
+      // canActivate: [AuthGuard]
     },
     {
       path: 'service-provider',

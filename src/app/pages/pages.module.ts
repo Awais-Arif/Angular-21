@@ -7,26 +7,24 @@ import { SharedModule } from 'primeng/api';
 import { TableModule } from 'primeng/table';
 
 @NgModule({
-  imports: [
-    PagesRoutingModule,
-    ThemeModule,
-    NbMenuModule,
-    TableModule,
-    NbButtonModule,
-    NbCardModule,
-    NbFormFieldModule,
-    NbIconModule,
-    NbInputModule,
-    NbMenuModule,
-    NbSelectModule,
-    NbSpinnerModule,
-    NbListModule,
-    NbRadioModule,
-    SharedModule,
-  ],
-  declarations: [
-    PagesComponent,
-  ],
+    imports: [
+        PagesRoutingModule,
+        ThemeModule,
+        NbMenuModule,
+        TableModule,
+        NbButtonModule,
+        NbCardModule,
+        NbFormFieldModule,
+        NbIconModule,
+        NbInputModule,
+        NbMenuModule,
+        NbSelectModule,
+        NbSpinnerModule,
+        NbListModule,
+        NbRadioModule,
+        SharedModule,
+        PagesComponent,
+    ],
 })
 export class PagesModule {
 }

@@ -4,12 +4,14 @@ import { AppBaseComponent } from '../../../../../shared/components/app-base-comp
 import { CustomersService } from '../../../services/customer.service';
 import { CustomerDetail, CustomerServiceRequestDetailModel } from '../../../models/customer-detail.model';
 import { environment } from '../../../../../../environments/environment';
+import { CurrencyPipe } from '@angular/common';
+import { NbCardModule, NbTabsetModule } from '@nebular/theme';
 
 @Component({
-    selector: 'ngx-customer-details',
-    templateUrl: './customer-details.component.html',
-    styleUrls: ['./customer-details.component.scss'],
-    standalone: false
+  selector: 'ngx-customer-details',
+  templateUrl: './customer-details.component.html',
+  styleUrls: ['./customer-details.component.scss'],
+  imports: [NbCardModule, NbTabsetModule, CurrencyPipe]
 })
 export class CustomerDetailsComponent extends AppBaseComponent implements OnInit {
 

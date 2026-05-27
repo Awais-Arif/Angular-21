@@ -1,12 +1,13 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { NbDialogRef } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbDialogRef, NbIconModule } from '@nebular/theme';
 import { ConfirmationDialogService } from '../shared/services/confirmation-dialog.service';
 
 @Component({
-    selector: 'ngx-confirmation-dialog',
-    templateUrl: './confirmation-dialog.component.html',
-    styleUrls: ['./confirmation-dialog.component.scss'],
-    standalone: false
+  selector: 'ngx-confirmation-dialog',
+  templateUrl: './confirmation-dialog.component.html',
+  styleUrls: ['./confirmation-dialog.component.scss'],
+  standalone: true,
+  imports: [NbCardModule, NbIconModule, NbButtonModule]
 })
 export class ConfirmationDialogComponent implements AfterViewInit {
   title: string = '';
@@ -23,7 +24,8 @@ export class ConfirmationDialogComponent implements AfterViewInit {
       this.title = this.confirmationDialogService.title;
       this.message = this.confirmationDialogService.message;
       this.btnOkText = this.confirmationDialogService.btnOkText;
-      this.btnCancelText = this.confirmationDialogService.btnCancelText;
+      if (this.confirmationDialogService.btnCancelText)
+        this.btnCancelText = this.confirmationDialogService.btnCancelText;
     }, 0);
   }
 

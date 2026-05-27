@@ -1,15 +1,18 @@
 import { Component, Injector, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { NbCardComponent, NbDialogRef, NbDialogService } from '@nebular/theme';
+import { NbCardComponent, NbDialogRef, NbDialogService, NbCardModule, NbButtonModule, NbIconModule, NbFormFieldModule, NbInputModule } from '@nebular/theme';
 import { AppBaseComponent } from '../../../../shared/components/app-base-component';
 import { LicenseType } from '../../models/license-type.model';
 import { LicenseTypeService } from '../../services/license-type.service';
+import { Bind } from 'primeng/bind';
+import { TableModule } from 'primeng/table';
+import { PrimeTemplate } from 'primeng/api';
 
 @Component({
     selector: 'ngx-license-type',
     templateUrl: './license-type.component.html',
-    standalone: false
+    imports: [NbCardModule, NbButtonModule, Bind, TableModule, PrimeTemplate, NbIconModule, FormsModule, ReactiveFormsModule, NbFormFieldModule, NbInputModule]
 })
 export class LicenseTypeComponent extends AppBaseComponent implements OnInit {
   public licenseTypes: LicenseType[];

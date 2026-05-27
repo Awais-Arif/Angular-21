@@ -1,14 +1,15 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { SettingService } from '../../services/setting.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppBaseComponent } from '../../../../shared/components/app-base-component';
-import { NbCardComponent, NbDialogRef } from '@nebular/theme';
+import { NbCardComponent, NbDialogRef, NbCardModule, NbButtonModule } from '@nebular/theme';
 import { Settings } from '../../models/settings.model';
+
 
 @Component({
     selector: 'ngx-settings',
     templateUrl: './settings.component.html',
-    standalone: false
+    imports: [NbCardModule, FormsModule, ReactiveFormsModule, NbButtonModule]
 })
 export class SettingsComponent extends AppBaseComponent implements OnInit {
   public dialogRef: NbDialogRef<NbCardComponent>;

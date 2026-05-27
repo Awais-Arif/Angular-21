@@ -21,9 +21,11 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { TableModule } from 'primeng/table';
 
 @NgModule({
-  declarations: [AppComponent, ConfirmationDialogComponent],
-  bootstrap: [AppComponent], imports: [BrowserModule,
+  declarations: [],
+  imports: [BrowserModule,
     BrowserAnimationsModule,
+    AppComponent,
+    ConfirmationDialogComponent,
     AppRoutingModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
@@ -32,9 +34,9 @@ import { TableModule } from 'primeng/table';
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
     TableModule,
-    NbChatModule.forRoot({
-      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
-    }),
+    // NbChatModule.forRoot({
+    //   messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
+    // }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     NbAuthModule.forRoot({

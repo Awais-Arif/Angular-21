@@ -4,12 +4,14 @@ import { AppBaseComponent } from '../../../../../shared/components/app-base-comp
 import { ServiceProviderDetails } from '../../../models/service-provider-details.model';
 import { ServiceProviderService } from '../../../services/service-provider.service';
 import { environment } from '../../../../../../environments/environment';
+import { CurrencyPipe, DatePipe } from '@angular/common';
+import { NbCardModule, NbButtonModule } from '@nebular/theme';
 
 @Component({
     selector: 'ngx-serviceprovider-details',
     templateUrl: './service-provider-details.component.html',
     styleUrls: ['./service-provider-details.component.scss'],
-    standalone: false
+    imports: [NbCardModule, NbButtonModule, CurrencyPipe, DatePipe]
 })
 export class ServiceProviderDetailsComponent extends AppBaseComponent implements OnInit {
 
